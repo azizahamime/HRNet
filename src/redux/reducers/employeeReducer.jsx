@@ -15,4 +15,5 @@ const empSlice = createSlice({
 })
 
 export const {addEmployee} = empSlice.actions;
+export const employeeTab = state=>state.employee.employees
 export default empSlice.reducer; 

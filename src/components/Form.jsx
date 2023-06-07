@@ -9,6 +9,7 @@ import states from "../datas/states";
 import departments from "../datas/departements";
 import Modal from "./Modal";
 import { addEmployee } from "../redux/reducers/employeeReducer";
+//import home from '../assets/house.svg'
 
 export default function Form(){
   const [firstName, setFirstName] = useState("");
@@ -67,9 +68,11 @@ export default function Form(){
         <label htmlFor="date-of-birth">
           Date of Birth
           <DatePicker
+            todayButton={"Aujord'hui"}
             dateFormat="dd/MM/yyyy"
             selected={dateBirth}
             onChange={(date) => setDateBirth(date)}
+            
           />
         </label>
 
@@ -79,6 +82,7 @@ export default function Form(){
             dateFormat="dd/MM/yyyy"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
+            todayButton={"Aujord'hui"}
           />
         </label>
 
