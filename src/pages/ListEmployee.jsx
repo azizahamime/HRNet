@@ -21,21 +21,18 @@ export default function ListEmployee() {
 				accessorKey: "lastName",
 				size: 100,
 			},
+      {
+				header: "Date of Birth",
+				accessorKey: "dateBirth",
+				size: 100,
+			},
 			{
 				header: "Start Date",
 				accessorKey: "startDate",
 				size: 100,
 			},
-			{
-				header: "Department",
-				accessorKey: "department",
-				size: 100,
-			},
-			{
-				header: "Date of Birth",
-				accessorKey: "dateBirth",
-				size: 100,
-			},
+			
+			
 			{
 				header: "Street",
 				accessorKey: "street",
@@ -54,6 +51,11 @@ export default function ListEmployee() {
 			{
 				header: "Zip Code",
 				accessorKey: "zipCode",
+				size: 100,
+			},
+      {
+				header: "Department",
+				accessorKey: "department",
 				size: 100,
 			},
 		],
@@ -103,7 +105,7 @@ export default function ListEmployee() {
           
           muiTablePaperProps={{
             sx: {
-              maxWidth: '99%',// width of table
+              maxWidth: '97%',// table's width
               m: 'auto',
              
             },

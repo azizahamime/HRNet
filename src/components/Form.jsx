@@ -7,9 +7,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 import states from "../datas/states";
 import departments from "../datas/departements";
-import Modal from "./Modal";
+//import Modal from "./Modal";
 import { addEmployee } from "../redux/reducers/employeeReducer";
 //import home from '../assets/house.svg'
+import ExampleComponent from 'react-modal-aziza';
+import 'react-modal-aziza/dist/index.css';
 
 export default function Form(){
   const [firstName, setFirstName] = useState("");
@@ -130,7 +132,7 @@ export default function Form(){
         <input type="submit" onClick={handleSave} />
 
       </form>
-      {isModalVisible && ( <Modal />)}
+      {isModalVisible && ( <ExampleComponent />)}
     </>
   )
 }
