@@ -7,11 +7,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 import states from "../datas/states";
 import departments from "../datas/departements";
-//import Modal from "./Modal";
 import { addEmployee } from "../redux/reducers/employeeReducer";
-//import home from '../assets/house.svg'
-import ExampleComponent from 'react-modal-aziza';
-import 'react-modal-aziza/dist/index.css';
+//import { Modal } from 'react-modal-aziza';
+//import 'react-modal-aziza/dist/index.css';
 
 export default function Form(){
   const [firstName, setFirstName] = useState("");
@@ -24,10 +22,7 @@ export default function Form(){
 	const [zipCode, setZipCode] = useState("");
 	const [department, setDepartment] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const defaultDepartement = departments[0];
-  const defaultState = states[0].name
-
-  const dispatch = useDispatch();
+   const dispatch = useDispatch();
 
   const formatDate = (date) => {
     if (date) {
@@ -57,82 +52,86 @@ export default function Form(){
   return (
     <>
       <form action="#" id="create-employee">
-        <label htmlFor="first-name">
+        <label>
           First Name
-          <input type="text" id="first-name" onChange={(e) => setFirstName(e.target.value)}/>
+          <input type="text" id="first-name" onChange={(e) => setFirstName(e.target.value)} required/>
         </label>
 
-        <label htmlFor="last-name">
+        <label>
           Last Name
-          <input type="text" id="last-name" onChange={(e) => setLastName(e.target.value)} />
+          <input type="text" id="last-name" onChange={(e) => setLastName(e.target.value)} required/>
         </label>
 
-        <label htmlFor="date-of-birth">
+        <label>
           Date of Birth
           <DatePicker
             todayButton={"Aujord'hui"}
             dateFormat="dd/MM/yyyy"
             selected={dateBirth}
             onChange={(date) => setDateBirth(date)}
+            required
             
           />
         </label>
 
-        <label htmlFor="start-date">
+        <label>
           Start Date
           <DatePicker
             dateFormat="dd/MM/yyyy"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
-            todayButton={"Aujord'hui"}
+            todayButton={"Aujourd'hui"}
+            required
           />
         </label>
 
         <fieldset className="address">
           <legend>Address</legend>
 
-          <label htmlFor="street">
+          <label>
             Street
-            <input id="street" type="text" onChange={(e) => setStreet(e.target.value)}/>
+            <input id="street" type="text" onChange={(e) => setStreet(e.target.value)} required/>
           </label>
 
-          <label htmlFor="city">
+          <label>
             City
-            <input id="city" type="text" onChange={(e) => setCity(e.target.value)}/>
+            <input id="city" type="text" onChange={(e) => setCity(e.target.value)} required/>
           </label>
 
-          <label htmlFor="state">
+          <label>
             State
             <Dropdown 
               options={states.map(el=>({
                 label: el.name,
-                value:el.abbreviation
+                value:el.abbreviation,
               }))} 
-              value={defaultState}  
               onChange={(e) => setState(e.value)} 
               placeholder="Select a state"
+              required
             />
           </label>
-          <label htmlFor="zip-code">
+          <label >
             Zip Code
-            <input id="zip-code" type="number" onChange={(e) => setZipCode(e.target.value)}/>
+            <input id="zip-code" type="number" onChange={(e) => setZipCode(e.target.value)} required/>
           </label>
         </fieldset>
 
-        <label htmlFor="department">
+        <label>
           Department
           <Dropdown 
             options={departments} 
-            value={defaultDepartement}  
             onChange={(e) => setDepartment(e.value)} 
             placeholder="Select a Department"
+            required
           />
         </label>
 
-        <input type="submit" onClick={handleSave} />
+        <input type="submit" onClick={handleSave} className="submit" />
 
       </form>
-      {isModalVisible && ( <ExampleComponent />)}
+    
+      {isModalVisible && ( <div>hello</div>)}
+      
     </>
   )
 }
