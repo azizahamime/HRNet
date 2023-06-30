@@ -8,8 +8,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import states from "../datas/states";
 import departments from "../datas/departements";
 import { addEmployee } from "../redux/reducers/employeeReducer";
-//import { Modal } from 'react-modal-aziza';
-//import 'react-modal-aziza/dist/index.css';
+import  Modal  from 'react-modal-aziza';
+import 'react-modal-aziza/dist/index.css';
 
 export default function Form(){
   const [firstName, setFirstName] = useState("");
@@ -51,10 +51,10 @@ export default function Form(){
   };
   return (
     <>
-      <form action="#" id="create-employee">
+      <form action="#" id="create-employee" onSubmit={handleSave}>
         <label>
           First Name
-          <input type="text" id="first-name" onChange={(e) => setFirstName(e.target.value)} required/>
+          <input type="text" id="first-name" onChange={(e) => setFirstName(e.target.value)} autoComplete="first name" required/>
         </label>
 
         <label>
@@ -65,12 +65,12 @@ export default function Form(){
         <label>
           Date of Birth
           <DatePicker
-            todayButton={"Aujord'hui"}
+            todayButton={"Aujourd'hui"}
             dateFormat="dd/MM/yyyy"
             selected={dateBirth}
             onChange={(date) => setDateBirth(date)}
             required
-            
+            id="date-birth"
           />
         </label>
 
@@ -82,6 +82,7 @@ export default function Form(){
             onChange={(date) => setStartDate(date)}
             todayButton={"Aujourd'hui"}
             required
+            id="date-start"
           />
         </label>
 
@@ -126,11 +127,11 @@ export default function Form(){
           />
         </label>
 
-        <input type="submit" onClick={handleSave} className="submit" />
+        <input type="submit" className="submit" />
 
       </form>
     
-      {isModalVisible && ( <div>hello</div>)}
+      {isModalVisible && ( <Modal message="hello" btnClose/>)}
       
     </>
   )
