@@ -22,7 +22,10 @@ export default function Form(){
 	const [zipCode, setZipCode] = useState("");
 	const [department, setDepartment] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
-   const dispatch = useDispatch();
+  const dispatch = useDispatch();
+ 
+  const closeModal = () =>setIsModalVisible(!isModalVisible)
+  
 
   const formatDate = (date) => {
     if (date) {
@@ -31,6 +34,7 @@ export default function Form(){
       return "";
     }
   };
+  
 
   const handleSave = (e) => {
     e.preventDefault();
@@ -48,7 +52,10 @@ export default function Form(){
 
     dispatch(addEmployee(employee));
     setIsModalVisible(true);
+            
   };
+  
+  
   return (
     <>
       <form action="#" id="create-employee" onSubmit={handleSave}>
@@ -131,7 +138,13 @@ export default function Form(){
 
       </form>
     
-      {isModalVisible && ( <Modal message="hello" btnClose/>)}
+      {isModalVisible && ( <Modal 
+        isOpenModal={isModalVisible} 
+        onClose={closeModal} 
+        btnClose 
+        btnStyle={{ btnBackgroundColor: 'yellow', btnTextColor: '#000' }}
+        modalStyle={{ modalBackground: '#000', modalTextColor: '#fff' }}
+        />)}
       
     </>
   )

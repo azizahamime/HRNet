@@ -11,7 +11,7 @@ export default function CreateEmployee() {
       </div>
       <div className="container">
         <Link to="/listEmployee">View Current Employees</Link>
-        <h2>Create Employee</h2>
+        <h4>Create Employee</h4>
         <Form/>  
       </div>
     </main>	

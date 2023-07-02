@@ -8,7 +8,7 @@ import {employeeTab } from "../redux/reducers/employeeReducer";
 
 export default function ListEmployee() {
   const employeesList = useSelector(employeeTab)
-  console.log(employeesList)
+  // console.log(employeesList)
   const columns = useMemo(
 		() => [
 			{
