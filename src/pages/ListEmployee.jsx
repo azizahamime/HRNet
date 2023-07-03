@@ -14,7 +14,7 @@ export default function ListEmployee() {
 			{
 				header: "First Name",
 				accessorKey: "firstName",
-				size: 100,
+				size: 20,
 			},
 			{
 				header: "Last Name",
@@ -88,7 +88,7 @@ export default function ListEmployee() {
           enableToolbarInternalActions={false}//desable global filter
           muiTableBodyCellProps={{
             sx: {
-              p: '2px 16px', //padding cells
+              p: '7px 8px', //padding cells
               border: '1px solid #f2f2f2'
             },
             align:'center'
